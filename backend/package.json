@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check",
+    "build:sdkbackoffice": "./node_modules/.bin/lb-sdk server/server.js ../frontend/src/app/shared/sdk -l angular2 -d ng2web -i disabled"
+  },
+  "dependencies": {
+    "canvas": "^1.6.10",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "fabric": "^2.2.3",
+    "helmet": "^3.10.0",
+    "loopback": "^3.19.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.0.0",
+    "loopback-connector-mongodb": "^1.18.1",
+    "pdfkit": "^0.8.3",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^2.0.0"
+  },
+  "devDependencies": {
+    "@mean-expert/loopback-sdk-builder": "^2.2.7",
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0",
+    "nsp": "^2.1.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "backend"
+}

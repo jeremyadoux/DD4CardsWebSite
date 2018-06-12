@@ -1,0 +1,24 @@
+<aside class="sidebar" [class.toggled]="sidebarVisible">
+  <perfect-scrollbar>
+    <ul class="navigation">
+      <li routerLinkActive="navigation__active"><a [routerLink]="['/home']"><i class="zmdi zmdi-home"></i> Home</a></li>
+      <li routerLinkActive="navigation__sub--active" class="navigation__sub">
+        <a (click)="toggleNavigationSub('Forms', $event)"><i class="zmdi zmdi-view-list"></i> Power</a>
+
+        <ul [@toggleHeight]="navigationSubState.Forms">
+          <li routerLinkActive="navigation__active"><a [routerLink]="['/power/list']">List</a></li>
+          <li routerLinkActive="navigation__active"><a [routerLink]="['/power/create']">Create</a></li>
+        </ul>
+      </li>
+
+      <li routerLinkActive="navigation__sub--active" class="navigation__sub">
+        <a (click)="toggleNavigationSub('Tables', $event)"><i class="zmdi zmdi-view-list"></i> Power group</a>
+
+        <ul [@toggleHeight]="navigationSubState.Tables">
+          <li routerLinkActive="navigation__active"><a [routerLink]="['/power/groups']">List</a></li>
+          <li routerLinkActive="navigation__active"><a [routerLink]="['/power/group/create']">Create</a></li>
+        </ul>
+      </li>
+    </ul>
+  </perfect-scrollbar>
+</aside>

@@ -1,0 +1,74 @@
+<div class="card" [formGroup]="formQuery">
+  <div class="card-body" >
+
+    <div class="row" formGroupName="where">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label>Name</label>
+          <input formControlName="name" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-group--select">
+          <label>Type</label>
+          <div class="select">
+            <select class="form-control" formControlName="originType">
+              <option value="">All</option>
+              <option *ngFor="let type of groupByField.originType" [value]="type">{{type}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group form-group--select">
+          <label>Type name</label>
+          <div class="select">
+            <select class="form-control" formControlName="originName">
+              <option value="">All</option>
+              <option *ngFor="let name of groupByField.originName" [value]="name">{{name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label>Level</label>
+          <input formControlName="level" type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <app-table-pagination titleData="command" [formQuery]="formQuery" (paginationChange)="search()"></app-table-pagination>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="card-demo" *ngFor="let power of powers">
+  <div class="card">
+
+    <div class="card-body">
+      <h4 class="card-title">{{power.name}}</h4>
+      <h6 class="card-subtitle">{{power.originType}} - {{power.originName}}</h6>
+
+      <div class="actions">
+        <div dropdown>
+          <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+            <a *ngIf="!isAddedMode" [routerLink]="['/power/edit', power.id]" class="dropdown-item">Edit</a>
+            <button  *ngIf="isAddedMode" (click)="addToOutput(power)" type="button" class="dropdown-item btn btn-link">Add to group</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="card-text">
+        <img [src]="power.id | loadcardpower | async" />
+      </p>
+    </div>
+
+  </div>
+</div>

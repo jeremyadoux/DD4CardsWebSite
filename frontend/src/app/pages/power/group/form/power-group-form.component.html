@@ -1,0 +1,27 @@
+<section class="content">
+  <header class="content__title">
+    <h1>Create group power</h1>
+  </header>
+
+  <div class="card" [formGroup]="form">
+    <div class="card-body">
+      <h3 class="card-body__title">Power</h3>
+
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Name</label>
+            <input formControlName="name" type="text" class="form-control" placeholder="Elodie - personnage">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-primary" (click)="submitForm(form)">Sauvegarder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

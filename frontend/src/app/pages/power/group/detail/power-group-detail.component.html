@@ -1,0 +1,40 @@
+<section class="content">
+  <header class="content__title">
+    <h1>Detail group {{groupPower.name}}</h1>
+  </header>
+
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-body__title">Power</h3>
+    </div>
+  </div>
+
+  <div class="card-demo" *ngFor="let power of groupPower.powers">
+    <div class="card">
+
+      <div class="card-body">
+        <h4 class="card-title">{{power.name}}</h4>
+        <h6 class="card-subtitle">{{power.originType}} - {{power.originName}}</h6>
+
+        <div class="actions">
+          <div dropdown>
+            <i dropdownToggle class="actions__item zmdi zmdi-more-vert"></i>
+            <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+              <a *ngIf="!isAddedMode" [routerLink]="['/power/edit', power.id]" class="dropdown-item">Edit</a>
+              <button (click)="removeToGroup(power)" type="button" class="dropdown-item btn btn-link">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="card-text">
+          <img [src]="power.id | loadcardpower | async" />
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <h2>Ajouter des pouvoirs au groupe</h2>
+  <app-power-list [isAddedMode]="true" (addedAction)="addPowerToGroup($event)"></app-power-list>
+
+</section>

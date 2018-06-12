@@ -1,0 +1,270 @@
+<section class="content">
+  <header class="content__title">
+    <h1>Create or edit power</h1>
+  </header>
+
+  <div class="card" [formGroup]="form">
+    <div class="card-body">
+      <h3 class="card-body__title">Power</h3>
+
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Name</label>
+            <input formControlName="name" type="text" class="form-control" placeholder="Assaut final">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Sous texte</label>
+            <input formControlName="textType" type="text" class="form-control" placeholder="Magicien niveau 2">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+            <label>Origine type</label>
+            <span *ngIf="formShowSelect.originType">
+              <div class="select">
+                <select formControlName="originType" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.originType" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.originType = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.originType">
+              <input formControlName="originType" type="text" class="form-control" placeholder="Classe ou Trait">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.originType = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group form-group--select">
+            <label>Origine Name</label>
+            <span *ngIf="formShowSelect.originName">
+              <div class="select">
+                <select formControlName="originName" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.originName" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.originName = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.originName">
+              <input formControlName="originName" type="text" class="form-control" placeholder="Magicien ou Tieffelin">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.originName = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group form-group--select">
+            <label>Type de la carte</label>
+            <div class="select">
+              <select formControlName="type" class="form-control">
+                <option>Select an Option</option>
+                <option value="A volonté">A volonté</option>
+                <option value="Rencontre">Rencontre</option>
+                <option value="Quotidien">Quotidien</option>
+                <option value="Trait">Trait</option>
+                <option value="Utilitaire">Utilitaire</option>
+                <option value="Inconnu">Inconnu</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Fréquence du pouvoir (textuel)</label>
+            <span *ngIf="formShowSelect.frequency">
+              <div class="select">
+                <select formControlName="frequency" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.frequency" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.frequency = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.frequency">
+              <input formControlName="frequency" type="text" class="form-control" placeholder="A volonté">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.frequency = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Level</label>
+            <input formControlName="level" type="text" class="form-control" placeholder="10">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Mots-clés (séparé par une virgule)</label>
+            <input formControlName="keywordsStr" type="text" class="form-control" placeholder="arcanique, poison">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Type d'action</label>
+            <span *ngIf="formShowSelect.typeAction">
+              <div class="select">
+                <select formControlName="typeAction" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.typeAction" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.typeAction = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.typeAction">
+              <input formControlName="typeAction" type="text" class="form-control" placeholder="Action mineure">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.typeAction = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Type d'attaque</label>
+            <span *ngIf="formShowSelect.typeAttaque">
+              <div class="select">
+                <select formControlName="typeAttaque" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.typeAttaque" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.typeAttaque = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.typeAttaque">
+              <input formControlName="typeAttaque" type="text" class="form-control" placeholder="Distance, Corps à Corps">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.typeAttaque = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Portée</label>
+            <span *ngIf="formShowSelect.scope">
+              <div class="select">
+                <select formControlName="scope" class="form-control">
+                  <option>Select an Option</option>
+                  <option *ngFor="let value of formOptions.scope" [value]="value">{{value}}</option>
+                </select>
+              </div>
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.scope = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+              </div>
+            </span>
+            <span *ngIf="!formShowSelect.scope">
+             <input formControlName="scope" type="text" class="form-control" placeholder="Explosion 1, Arme">
+              <div class="a-add-more-value">
+                <button (click)="formShowSelect.scope = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+              </div>
+              <i class="form-group__bar"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label>Description</label>
+            <textarea formControlName="description" class="form-control" rows="5" placeholder="D'un mouvement de la main, vous faites apparaître une vive lumière"></textarea>
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label>Texte de la carte (vous pouvez mettre en gras en entourant des mots avec un #)</label>
+            <textarea formControlName="text" class="form-control" rows="10" placeholder="#Cible : #un objet ou une case inoccupée"></textarea>
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row" formGroupName="book">
+        <div class="col-sm-12">
+          <h3 class="card-body__title">Livre</h3>
+
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Nom du livre</label>
+                <span *ngIf="formShowSelect.book.name">
+                  <div class="select">
+                    <select formControlName="name" class="form-control">
+                      <option>Select an Option</option>
+                      <option *ngFor="let value of formOptionsBook.name" [value]="value">{{value}}</option>
+                    </select>
+                  </div>
+                  <div class="a-add-more-value">
+                    <button (click)="formShowSelect.book.name = false;" type="button" class="btn btn-link">Ajouter une nouvelle valeur</button>
+                  </div>
+                </span>
+                <span *ngIf="!formShowSelect.book.name">
+                  <input formControlName="name" type="text" class="form-control" placeholder="Manuel des Joueurs">
+                  <div class="a-add-more-value">
+                    <button (click)="formShowSelect.book.name = true;" type="button" class="btn btn-link">Revenir à la sélection</button>
+                  </div>
+                  <i class="form-group__bar"></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Page du livre</label>
+                <input formControlName="page" type="text" class="form-control" placeholder="106">
+                <i class="form-group__bar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-primary" (click)="submitForm(form)">Sauvegarder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

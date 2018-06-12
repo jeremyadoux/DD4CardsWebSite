@@ -1,0 +1,47 @@
+<section class="content">
+  <header class="content__title">
+    <h1>Dashboard</h1>
+    <small>Welcome to the unique Material Design admin web app experience!</small>
+  </header>
+
+  <div class="card" [formGroup]="formQuery">
+    <div class="card-body" >
+
+      <div class="row" formGroupName="where">
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label>Name</label>
+            <input formControlName="name" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <app-table-pagination titleData="command" [formQuery]="formQuery" (paginationChange)="search()"></app-table-pagination>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped mb-0">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let group of groups">
+        <td><a [routerLink]="['/power/group/', group.id]">{{ group.name }}</a></td>
+        <td>
+          <div class="actions">
+            <a [routerLink]="['/user-interface/cards']" class="actions__item zmdi zmdi-plus"></a>
+            <a [routerLink]="['/user-interface/cards']" class="actions__item zmdi zmdi-check"></a>
+            <a [routerLink]="['/user-interface/cards']" class="actions__item zmdi zmdi-star-border"></a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

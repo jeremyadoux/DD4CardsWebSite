@@ -1,0 +1,11 @@
+<div class="title-wrapper-inner self-clear" [formGroup]="formQuery">
+
+  <nav>
+    <ul class="pagination">
+      <li class="page-item pagination-prev"><a (click)="setCurrentPage(formQuery.value.page.num - 1)" class="page-link"></a></li>
+      <li class="page-item" *ngFor="let page of pagination"><a (click)="setCurrentPage(page)" [ngClass]="{'pager-current': formQuery.value.page.num === page}" class="page-link">{{page}}</a></li>
+      <li class="page-item pagination-next"><a (click)="setCurrentPage(formQuery.value.page.num + 1)" class="page-link"></a></li>
+    </ul>
+  </nav>
+
+</div>

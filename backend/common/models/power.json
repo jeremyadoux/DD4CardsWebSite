@@ -1,0 +1,69 @@
+{
+  "name": "Power",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Groupby": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "textType": {
+      "type": "string",
+      "required": true
+    },
+    "originType": {
+      "type": "string",
+      "required": true
+    },
+    "originName": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": [
+        "string"
+      ]
+    },
+    "typeAction": {
+      "type": "string"
+    },
+    "typeAttaque": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "book": {
+      "type": "object"
+    },
+    "card": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
