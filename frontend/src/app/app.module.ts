@@ -7,6 +7,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SharedService } from './shared/services/shared.service';
 import { HttpModule } from '@angular/http';
 import { SDKBrowserModule } from './shared/sdk';
+import {AuthGuard} from "./guard/auth.guard";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SDKBrowserModule } from './shared/sdk';
     SDKBrowserModule.forRoot()
   ],
   providers: [
+    AuthGuard,
     SharedService,
     {
       provide: LocationStrategy,

@@ -1,0 +1,33 @@
+<section class="content">
+  <p>Vous devez être connectés pour continuer.</p>
+  <div class="card" [formGroup]="form">
+    <div class="card-body">
+      <h3 class="card-body__title">Connexion</h3>
+
+      <br>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Nom d'utilisateur</label>
+            <input formControlName="username" type="text" class="form-control" placeholder="JoeLapinou">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input formControlName="password" type="password" class="form-control" placeholder="">
+            <i class="form-group__bar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <button type="button" class="btn btn-primary" (click)="submitForm(form)">Se connecter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

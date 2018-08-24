@@ -10,16 +10,17 @@ import { PowerGroupListComponent } from './group/list/power-group-list.component
 import { PowerListComponent } from './list/power-list.component';
 import { PowerListPageComponent } from './list/page/power-list-page.component';
 import { PowerGroupDetailComponent } from './group/detail/power-group-detail.component';
+import {AuthGuard} from "../../guard/auth.guard";
 
 const ROUTE = [
-  {path: '', component: PowerListPageComponent},
-  {path: 'list', component: PowerListPageComponent},
-  {path: 'create', component: PowerFormComponent},
-  {path: 'edit/:id', component: PowerFormComponent},
-  {path: 'groups', component: PowerGroupListComponent},
-  {path: 'group/create', component: PowerGroupFormComponent},
-  {path: 'group/edit/:id', component: PowerGroupFormComponent},
-  {path: 'group/:id', component: PowerGroupDetailComponent}
+  {path: '', component: PowerListPageComponent, canActivate: [AuthGuard]},
+  {path: 'list', component: PowerListPageComponent, canActivate: [AuthGuard]},
+  {path: 'create', component: PowerFormComponent, canActivate: [AuthGuard]},
+  {path: 'edit/:id', component: PowerFormComponent, canActivate: [AuthGuard]},
+  {path: 'groups', component: PowerGroupListComponent, canActivate: [AuthGuard]},
+  {path: 'group/create', component: PowerGroupFormComponent, canActivate: [AuthGuard]},
+  {path: 'group/edit/:id', component: PowerGroupFormComponent, canActivate: [AuthGuard]},
+  {path: 'group/:id', component: PowerGroupDetailComponent, canActivate: [AuthGuard]}
 
 ];
 
