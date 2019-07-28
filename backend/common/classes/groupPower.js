@@ -66,17 +66,23 @@ class GroupPowerCard {
             let groupFabricFace = power.generateCard().face;
             console.log(groupFabricFace);
 
-            groupFabricFace.set({
+            groupFabricFace.top = classParent.spaceHeight + classParent.sizeCard.height * cpt.line;
+            groupFabricFace.left = classParent.spaceWidth + classParent.sizeCard.width * cpt.col;
+
+            /*groupFabricFace.set({
                 top: classParent.spaceHeight + classParent.sizeCard.height * cpt.line,
                 left:classParent.spaceWidth + classParent.sizeCard.width * cpt.col
-            });
+            });*/
             elementInPageFace.push(groupFabricFace);
 
             let groupFabricPile = power.generateCard().pile;
-            groupFabricPile.set({
+
+            groupFabricPile.top = classParent.spaceHeight + classParent.sizeCard.height * cpt.line;
+            groupFabricPile.left = classParent.spaceWidth + classParent.sizeCard.width * (2 - cpt.col)
+            /*groupFabricPile.set({
                 top: classParent.spaceHeight + classParent.sizeCard.height * cpt.line,
                 left:classParent.spaceWidth + classParent.sizeCard.width * (2 - cpt.col)
-            });
+            });*/
             elementInPagePile.push(groupFabricPile);
 
             cpt.col++;
