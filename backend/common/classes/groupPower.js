@@ -1,3 +1,5 @@
+'use strict'
+
 let fs = require('fs'),
     fabric = require('fabric').fabric,
     Canvas = require('canvas'),
@@ -62,6 +64,8 @@ class GroupPowerCard {
             }
 
             let groupFabricFace = power.generateCard().face;
+            console.log(groupFabricFace);
+
             groupFabricFace.set({
                 top: classParent.spaceHeight + classParent.sizeCard.height * cpt.line,
                 left:classParent.spaceWidth + classParent.sizeCard.width * cpt.col
